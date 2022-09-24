@@ -23,25 +23,25 @@ public class KafkaAvroproducer {
         Properties producerProperties = new Properties();
         producerProperties.load(Files.newInputStream(Paths.get(getPRODUCERCONFPATH())));
         Producer<String, Station> producer = new KafkaProducer<String, Station>(producerProperties);
-        String topic = getTOPICSTATION();
-        // copied from avro examples
-        JSONArray getAllStations = getJSONArray(urlf);
-        for (int i = 0; i < getAllStations.length(); i++) {
-            Station station = geOneRecordtStation(getAllStations, i);
-            ProducerRecord<String, Station> producerRecord = new ProducerRecord<>(
+        while (true) {
+            String topic = getTOPICSTATION();
+            // copied from avro examples
+            JSONArray getAllStations = getJSONArray(urlf);
+            for (int i = 0; i < getAllStations.length(); i++) {
+                Station station = geOneRecordtStation(getAllStations, i);
+                ProducerRecord<String, Station> producerRecord = new ProducerRecord<>(
 
-                    topic, station);
-            System.out.println(station);
-            producer.send(producerRecord, (metadata, exception) -> {
-                if (exception == null) {
-                    System.out.println(metadata.offset());
-                } else {
-                    exception.printStackTrace();
-                }
-            });
-        }
+                        topic,station.getNumber().toString(), station);
+                producer.send(producerRecord, (metadata, exception) -> {
+                    if (exception == null) {
+                        System.out.println(metadata.offset()+" ----->"+producerRecord.key());
+                    } else {
+                        exception.printStackTrace();
+                    }
+                });
+            };
         producer.flush();
-        producer.close();
+        }
 
     }
 

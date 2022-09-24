@@ -27,8 +27,8 @@ public class KafkaAvroConsumer {
                 ConsumerRecords<String, Station> records = kafkaConsumer.poll(1000);
 
                 for (ConsumerRecord<String, Station> record : records) {
-                    Station station = record.value();
-                    System.out.println(station + "----" + record.offset());
+
+                    System.out.println(record.key());
                 }
 
                 kafkaConsumer.commitSync();
