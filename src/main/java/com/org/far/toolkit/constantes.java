@@ -4,7 +4,7 @@ package com.org.far.toolkit;
 public class constantes {
 
     public static String getTOPICSTATION() {
-        String TOPICSTATION = "topic_station";
+        String TOPICSTATION = "topicstation";
         return TOPICSTATION;
     }
 
