@@ -36,7 +36,7 @@ public class RecordsVilib {
                 .setBanking((Boolean) rec1obj.get("banking"))
                 .setBikeStands(Long.parseLong(rec1obj.get("bike_stands").toString()))
                 .setBonus((Boolean) rec1obj.get("bonus"))
-                .setContractName("contract_name")
+                .setContractName((String) rec1obj.get("contract_name"))
                 .setName((String) rec1obj.get("name"))
                 .setNumber(Long.parseLong(rec1obj.get("number").toString()))
                 .setPosition(position.newBuilder().setLng(getLngandlat(rec1obj, "lng")).setLat(getLngandlat(rec1obj, "lat")).build())

@@ -31,10 +31,10 @@ public class KafkaAvroproducer {
                 Station station = geOneRecordtStation(getAllStations, i);
                 ProducerRecord<String, Station> producerRecord = new ProducerRecord<>(
 
-                        topic,station.getAddress().toString(), station);
+                        topic,station.getName(), station);
                 producer.send(producerRecord, (metadata, exception) -> {
                     if (exception == null) {
-                        System.out.println(metadata.offset()+" ----->"+producerRecord.key());
+                        System.out.println(metadata.offset()+" ----->"+producerRecord.value().getContractName());
                     } else {
                         exception.printStackTrace();
                     }
