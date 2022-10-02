@@ -11,10 +11,10 @@ public class testPartitioner implements Partitioner {
 
     @Override
     public int partition(String s, Object o, byte[] bytes, Object o1, byte[] bytes1, Cluster cluster) {
-int p;
-        if(((Station) o1).getContractName().equalsIgnoreCase("marseille"))
-            p=0;
-        else p=1;
+        int p;
+        if (((Station) o1).getContractName().equalsIgnoreCase("marseille"))
+            p = 0;
+        else p = 1;
 
         return p;
     }
@@ -27,6 +27,6 @@ int p;
 
     @Override
     public void configure(Map<String, ?> map) {
-        String vilibStationName = map.get("vilib.station.name").toString();
+        map.get("vilib.station.name");
     }
 }

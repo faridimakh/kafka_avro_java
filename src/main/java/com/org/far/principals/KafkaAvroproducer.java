@@ -13,8 +13,7 @@ import java.nio.file.Paths;
 import java.util.Properties;
 
 import static com.org.far.toolkit.RecordsVilib.*;
-import static com.org.far.toolkit.constantes.getPRODUCERCONFPATH;
-import static com.org.far.toolkit.constantes.getTOPICSTATION;
+import static com.org.far.toolkit.constantes.*;
 
 public class KafkaAvroproducer {
 
@@ -26,7 +25,7 @@ public class KafkaAvroproducer {
         while (true) {
             String topic = getTOPICSTATION();
             // copied from avro examples
-            JSONArray getAllStations = getJSONArray(urlf);
+            JSONArray getAllStations = getJSONArray(getVlibUrl());
             for (int i = 0; i < getAllStations.length(); i++) {
                 Station station = geOneRecordtStation(getAllStations, i);
                 ProducerRecord<String, Station> producerRecord = new ProducerRecord<>(
@@ -34,7 +33,7 @@ public class KafkaAvroproducer {
                         topic,station.getName(), station);
                 producer.send(producerRecord, (metadata, exception) -> {
                     if (exception == null) {
-                        System.out.println(metadata.offset()+" ----->"+producerRecord.value().getContractName());
+                        System.out.println(producerRecord.value().getName()+" -----> "+producerRecord.value().getContractName());
                     } else {
                         exception.printStackTrace();
                     }

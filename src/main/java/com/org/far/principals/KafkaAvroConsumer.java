@@ -24,7 +24,7 @@ public class KafkaAvroConsumer {
         try (KafkaConsumer<String, Station> kafkaConsumer = new KafkaConsumer<>(consumerProperties)) {
             String topic = getTOPICSTATION();
 //            kafkaConsumer.subscribe(Collections.singleton(topic));
-            TopicPartition partition1 = new TopicPartition(topic, 1);
+            TopicPartition partition1 = new TopicPartition(topic, 0);
             kafkaConsumer.assign(Arrays.asList(partition1));
             System.out.println("Waiting for data...");
 
@@ -34,7 +34,7 @@ public class KafkaAvroConsumer {
 
                 for (ConsumerRecord<String, Station> record : records) {
 
-                    System.out.println(record.value().getContractName()+ "----------" + record.partition());
+                    System.out.println(record.value().getName()+ "----------" + record.value().getContractName());
                 }
 
                 kafkaConsumer.commitSync();
