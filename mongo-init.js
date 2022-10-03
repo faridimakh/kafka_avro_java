@@ -1,11 +1,11 @@
 db.createUser(
         {
-            user: "<user for database which shall be created>",
-            pwd: "<password of user>",
+            user: "farid",
+            pwd: "ff",
             roles: [
                 {
                     role: "readWrite",
-                    db: "<database to create>"
+                    db: "fardb"
                 }
             ]
         }
