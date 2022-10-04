@@ -32,7 +32,8 @@ kafka-topics --create --zookeeper zookeeper:2181 --topic topicstation --replicat
 
 
 
-
+--mongodb CLI
+mongo --port 27017 -u farid -p ff --authenticationDatabase fardb
 
 
 
