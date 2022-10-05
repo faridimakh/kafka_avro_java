@@ -34,7 +34,7 @@ public class KafkaAvroConsumer {
 
                 for (ConsumerRecord<String, Station> record : records) {
 
-                    System.out.println(record.value().getName()+ "----------" + record.value().getContractName());
+                    System.out.println(record.key()+ "----------" +record.value().getContractName());
                 }
 
                 kafkaConsumer.commitSync();

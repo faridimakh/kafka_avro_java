@@ -16,7 +16,7 @@ import static com.org.far.toolkit.RecordsVilib.getJSONArray;
 import static com.org.far.toolkit.constantes.getVlibUrl;
 
 public class update_collection {
-    public static void main( String args[] ) throws JSONException {
+    public static void main(String[] args) throws JSONException {
 
         MongoCredential credential = MongoCredential.createCredential("farid", "fardb", "ff".toCharArray());
         MongoClient mongo = new MongoClient(new ServerAddress("localhost", 27017), Arrays.asList(credential));
