@@ -18,5 +18,8 @@ public class constantes {
     public static String getCONSUMERCONFPATH() {
         return "src/main/resources/consumer.properties";
     }
+    public static String getSTREAMCONFPATH() {
+        return "src/main/resources/stream.properties";
+    }
 }
 

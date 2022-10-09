@@ -4,6 +4,6 @@ import java.io.IOException;
 
 public class mainconsumer {
     public static void main(String[] args) throws IOException {
-        KafkaAvroConsumer.start();
+        KafkaAvroConsumer.start("filtred_station");
     }
 }
