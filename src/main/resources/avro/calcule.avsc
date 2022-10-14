@@ -1,0 +1,8 @@
+{
+  "type": "record",
+  "name": "Calcule",
+  "namespace":"com.example",
+  "fields": [
+    { "name": "masome","type": "long"}
+  ]
+}

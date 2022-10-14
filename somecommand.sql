@@ -3,6 +3,7 @@ kafka-topics --create --zookeeper zookeeper:2181 --topic topicstation --replicat
 kafka-topics --bootstrap-server localhost:9092 --describe --topic topicstation
 
 kafka-topics --bootstrap-server localhost:9092 --delete --topic topicstation
+kafka-topics --bootstrap-server localhost:9092 --list
 
 kafka-run-class kafka.tools.GetOffsetShell --broker-list localhost:9092 --topic topicstation --time -1
 

@@ -4,6 +4,7 @@ import com.example.Station;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.log4j.BasicConfigurator;
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -20,6 +21,7 @@ public class KafkaAvroproducer {
 
 
     public static void start() throws JSONException, IOException {
+//        BasicConfigurator.configure();
         Properties producerProperties = new Properties();
         producerProperties.load(Files.newInputStream(Paths.get(getPRODUCERCONFPATH())));
         Producer<String, Station> producer = new KafkaProducer<String, Station>(producerProperties);
