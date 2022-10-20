@@ -1,22 +1,20 @@
-package com.org.far.principals;
+package org.example.toolkit;
 
-import com.example.Station;
 import com.example.Status;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
-import org.apache.kafka.common.TopicPartition;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Properties;
 
-import static com.org.far.toolkit.constantes.getCONSUMERCONFPATH;
-import static com.org.far.toolkit.constantes.getTOPICSTATION;
+import static org.example.toolkit.mthodes.getCONSUMERCONFPATH;
+import static org.example.toolkit.mthodes.getTOPICSTATION;
+
 
 public class KafkaAvroConsumer {
 
@@ -39,7 +37,7 @@ public class KafkaAvroConsumer {
 
                 for (ConsumerRecord<String, Status> record : records) {
 
-                    System.out.println(record.key()+ "----------" +record.value());
+                    System.out.println(record.key() + "----------" + record.value());
                 }
 
                 kafkaConsumer.commitSync();

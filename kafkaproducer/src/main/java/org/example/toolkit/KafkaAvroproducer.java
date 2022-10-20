@@ -1,10 +1,9 @@
-package com.org.far.principals;
+package org.example.toolkit;
 
 import com.example.Station;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.log4j.BasicConfigurator;
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -13,13 +12,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Properties;
 
-import static com.org.far.toolkit.RecordsVilib.geOneRecordtStation;
-import static com.org.far.toolkit.RecordsVilib.getJSONArray;
-import static com.org.far.toolkit.constantes.*;
+import static org.example.toolkit.methodes.*;
 
 public class KafkaAvroproducer {
-
-
     public static void start() throws JSONException, IOException {
 //        BasicConfigurator.configure();
         Properties producerProperties = new Properties();
@@ -35,13 +30,14 @@ public class KafkaAvroproducer {
                         getTOPICSTATION(), station.getName().toLowerCase(), station);
                 producer.send(producerRecord, (metadata, exception) -> {
                     if (exception == null) {
-                        System.out.println(producerRecord.key()+ " -----> " + producerRecord.value().getContractName());
+                        System.out.println(producerRecord.key() + " -----> " + producerRecord.value().getContractName());
                     } else {
                         exception.printStackTrace();
                     }
                 });
-            };
-        producer.flush();
+            }
+            ;
+            producer.flush();
         }
 
     }

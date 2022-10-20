@@ -1,4 +1,4 @@
-package com.org.far.principals;
+package org.example.toolkit;
 
 import com.example.Station;
 import org.apache.kafka.clients.producer.Partitioner;

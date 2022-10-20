@@ -1,3 +1,5 @@
+package org.example;
+
 import com.example.Calcule;
 import com.example.Station;
 import io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde;
@@ -18,8 +20,9 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Properties;
 
-import static com.org.far.toolkit.constantes.getSTREAMCONFPATH;
-import static com.org.far.toolkit.constantes.getTOPICSTATION;
+import static org.example.methodes.getSTREAMCONFPATH;
+import static org.example.methodes.getTOPICSTATION;
+
 
 public class statfull_stream {
     public static void main(String[] args) throws IOException, InterruptedException {

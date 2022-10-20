@@ -1,4 +1,4 @@
-package packfartest;
+package org.example;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoCredential;
@@ -13,8 +13,8 @@ import org.json.JSONException;
 
 import java.util.Arrays;
 
-import static com.org.far.toolkit.RecordsVilib.getJSONArray;
-import static com.org.far.toolkit.constantes.getVlibUrl;
+import static org.example.toolkit.methodes.getJSONArray;
+import static org.example.toolkit.methodes.getVlibUrl;
 
 public class update_collection {
     public static void main(String[] args) throws JSONException {
@@ -27,11 +27,12 @@ public class update_collection {
         JSONArray getAllStations = getJSONArray(getVlibUrl());
         for (int i = 0; i < getAllStations.length(); i++) {
             Document doc = Document.parse(getAllStations.get(i).toString());
-
             database.getCollection("vilib")
                     .findOneAndReplace(Filters.eq("name", getAllStations.getJSONObject(i)
                             .get("name")), doc,new FindOneAndReplaceOptions().upsert(true)
                             .returnDocument(ReturnDocument.BEFORE));
+            System.out.println(doc.get("name")+": "+"document updated!");
+            System.out.println("COLLECTION vilib updated!");
         }
 
 

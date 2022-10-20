@@ -1,5 +1,4 @@
-package com.org.far.toolkit;
-//
+package org.example.toolkit;
 
 import com.example.Station;
 import com.example.position;
@@ -8,8 +7,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.web.client.RestTemplate;
 
-public class RecordsVilib {
-    public static final String urlf = "https://api.jcdecaux.com/vls/v1/stations?apiKey=2a5d13ea313bf8dc325f8783f888de4eb96a8c14";
+public class methodes {
+    public static String getVlibUrl() {
+        return "https://api.jcdecaux.com/vls/v1/stations?apiKey=2a5d13ea313bf8dc325f8783f888de4eb96a8c14";
+    }
+
+    public static String getPRODUCERCONFPATH() {
+        return "src/main/resources/producer.properties";
+    }
+
+    public static String getTOPICSTATION() {
+        return "topicstation";
+    }
 
     public static JSONArray getJSONArray(String someurl) throws JSONException {
         RestTemplate restTemplate = new RestTemplate();
@@ -43,6 +52,4 @@ public class RecordsVilib {
                 .setStatus((String) rec1obj.get("status"))
                 .build();
     }
-
-
 }

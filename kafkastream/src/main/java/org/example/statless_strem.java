@@ -1,3 +1,5 @@
+package org.example;
+
 import com.example.Station;
 import com.example.Status;
 import io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde;
@@ -20,8 +22,9 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Properties;
 
-import static com.org.far.toolkit.constantes.getSTREAMCONFPATH;
-import static com.org.far.toolkit.constantes.getTOPICSTATION;
+import static org.example.methodes.getSTREAMCONFPATH;
+import static org.example.methodes.getTOPICSTATION;
+
 
 public class statless_strem {
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -54,7 +57,7 @@ public class statless_strem {
                 .to("filtred_station", Produced.with(Serdes.String(), valuestatusserd));
 
 
-//-----------------------------------------------------------------------------------------------------------------
+////-----------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------
 
         Topology topovilib = builder.build();
